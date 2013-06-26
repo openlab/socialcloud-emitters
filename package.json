@@ -1,0 +1,20 @@
+{
+  "name": "Confoo-Cloud-Server",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "azure": "*",
+    "ntwitter":"*",
+    "mongoose": "3.3.1",
+    "instagram-node-lib": "*",
+    "node-foursquare": "*",
+    "sendgrid-nodejs": "*",
+    "twilio": "*",
+    "pusher": "*",
+    "request": "*",
+    "newrelic": "*"
+  }
+}
