@@ -22,6 +22,7 @@ module.exports = {
 	pusherKey: '',
 	pusherSecret: '',
 	amsPushUrl: '',
+	amsApplicationKey: '',
 	newRelicKey: "",
 	forsquareKeys: {
 		'secrets': {
