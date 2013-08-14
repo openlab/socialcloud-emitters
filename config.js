@@ -18,6 +18,10 @@ module.exports = {
 	sendgridKey: '',
 	twillioSid: '',
 	twillioToken: '',
+	pusherAppId: '',
+	pusherKey: '',
+	pusherSecret: '',
+	amsPushUrl: '',
 	newRelicKey: "",
 	forsquareKeys: {
 		'secrets': {
