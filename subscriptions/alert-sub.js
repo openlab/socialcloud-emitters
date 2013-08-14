@@ -119,9 +119,9 @@ function sendDashboardAlert(rule) {
 
 
   var pusher = new Pusher({
-    appId: '46344',
-    key: '195176193794b797d5a8',
-    secret: 'fb295df820015c785f6c'
+    appId: conifg.pusherAppId,
+    key: config.pusherKey,
+    secret: config.pusherSecret
   });
 
   pusher.trigger('test_channel', 'my_event', {"msg": 'The alert you set up to alert you when the search term ' + rule.searchTerm + ' has been triggered.'});
@@ -130,14 +130,21 @@ function sendDashboardAlert(rule) {
 
 function sendMobileAlert(rule) {
   console.log('sending mobile allert');
-  rq('http://confoocloud.azure-mobile.net/api/testpush?msg=The alert you set up to alert you when the search term ' + rule.searchTerm + ' has been triggered.', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log(body);
-    }
+  request.get({
+	url: 'http://confoocloud.azure-mobile.net/api/testpush?msg=The alert you set up to alert you when the search term ' + rule.searchTerm + ' has been triggered.', 
+	headers: {
+          'Content-Type': 'application/json',
+          'X-ZUMO-APPLICATION': config.amsApplicationKey
+      }
+    },	
+    function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log(body);
+      }
 
-    else {
-      console.log('got and error and a response code of ' + response.statusCode, error );
-    }
-  })
+      else {
+        console.log('got and error and a response code of ' + response.statusCode, error );
+      }
+    })
   
 }
