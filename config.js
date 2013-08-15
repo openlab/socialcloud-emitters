@@ -18,6 +18,7 @@ module.exports = {
 	sendgridKey: '',
 	twillioSid: '',
 	twillioToken: '',
+	twillioFromNumber: '',
 	pusherAppId: '',
 	pusherKey: '',
 	pusherSecret: '',
