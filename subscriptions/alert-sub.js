@@ -85,7 +85,7 @@ function sendTextAlert(rule) {
   var client = new twilio.RestClient(config.twillioSid, config.twillioToken);
   client.sms.messages.create({
     to: rule.sms,
-    from:'+14256157239',
+    from: config.twillioFromNumber,
     body:'The alert you set up to alert you when the search term ' + rule.searchTerm + ' has been triggered.'
     }, function(err, msg) {
       if(err) { 
@@ -131,7 +131,7 @@ function sendDashboardAlert(rule) {
 function sendMobileAlert(rule) {
   console.log('sending mobile allert');
   request.get({
-	url: 'http://confoocloud.azure-mobile.net/api/testpush?msg=The alert you set up to alert you when the search term ' + rule.searchTerm + ' has been triggered.', 
+	url: config.amsPushUrl + '?msg=The alert you set up to alert you when the search term ' + rule.searchTerm + ' has been triggered.', 
 	headers: {
           'Content-Type': 'application/json',
           'X-ZUMO-APPLICATION': config.amsApplicationKey
